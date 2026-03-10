@@ -1,0 +1,6 @@
+.footer {
+  background: var(--card-bg); border-top: var(--border);
+  padding: 28px 20px; text-align: center;
+  font-size: 0.78rem; color: var(--muted); letter-spacing: 2px;
+}
+.footer span { color: var(--accent); }

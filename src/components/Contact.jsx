@@ -1,0 +1,63 @@
+import { useEffect, useRef, useState } from 'react';
+import './Contact.css';
+
+export default function Contact() {
+  const infoRef = useRef(null);
+  const formRef = useRef(null);
+  const [status, setStatus] = useState('idle'); // idle | sending | sent
+
+  useEffect(() => {
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.15 });
+    [infoRef, formRef].forEach(r => r.current && obs.observe(r.current));
+    return () => obs.disconnect();
+  }, []);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setStatus('sending');
+    setTimeout(() => {
+      setStatus('sent');
+      setTimeout(() => { setStatus('idle'); e.target.reset(); }, 2500);
+    }, 1200);
+  };
+
+  const btnText = status === 'sending' ? 'TRANSMITTING...' : status === 'sent' ? 'DATA TRANSMITTED ✓' : 'TRANSMIT MESSAGE';
+  const btnStyle = status === 'sent' ? { background: 'var(--accent)', color: '#000' }
+                 : status === 'sending' ? { background: '#1a1a1a', color: 'var(--accent)' } : {};
+
+  return (
+    <section id="contact" className="contact">
+      <div className="c-container">
+        <div className="c-info slide-left" ref={infoRef}>
+          <h2 className="c-title">LET'S<br />CONNECT.</h2>
+          <p className="c-sub">Open to freelance projects, collabs, and full-time opportunities. Drop a message and I'll get back to you fast.</p>
+          <div className="social-box">
+            <a href="https://github.com/umermansoor124" target="_blank" rel="noreferrer" className="social-link neo-shadow-sm"><i className="fab fa-github"></i></a>
+            <a href="mailto:umer58984@gmail.com" className="social-link neo-shadow-sm"><i className="fas fa-envelope"></i></a>
+            <a href="https://www.linkedin.com/in/umer-mansoor-170101391/" target="_blank" rel="noreferrer" className="social-link neo-shadow-sm"><i className="fab fa-linkedin"></i></a>
+          </div>
+        </div>
+
+        <div className="c-form-box slide-right" ref={formRef}>
+          <form onSubmit={handleSubmit}>
+            <div className="input-group">
+              <label>FULL_NAME</label>
+              <input type="text" placeholder="Your Name" required />
+            </div>
+            <div className="input-group">
+              <label>EMAIL_ADDRESS</label>
+              <input type="email" placeholder="your@email.com" required />
+            </div>
+            <div className="input-group">
+              <label>MESSAGE_PAYLOAD</label>
+              <textarea rows="4" placeholder="Describe your inquiry..." required></textarea>
+            </div>
+            <button type="submit" className="submit-btn" style={btnStyle}>{btnText}</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  );
+}

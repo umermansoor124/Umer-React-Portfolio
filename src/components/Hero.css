@@ -1,0 +1,75 @@
+.hero {
+  text-align: center; padding: 170px 20px 120px;
+  position: relative; overflow: hidden;
+}
+.parallax-bg { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
+.p-shape {
+  position: absolute; border: var(--border);
+  opacity: 0.06; will-change: transform;
+}
+.p-shape1 { width: 300px; height: 300px; top: 10%; left: 5%; }
+.p-shape2 { width: 180px; height: 180px; top: 55%; right: 8%; }
+.p-shape3 { width: 100px; height: 100px; top: 20%; right: 22%; border-radius: 50%; }
+.p-shape4 { width: 220px; height: 4px; top: 78%; left: 15%; }
+.hero > * { position: relative; z-index: 1; }
+
+.status-tag {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: var(--card-bg); border: var(--border);
+  padding: 6px 18px; font-size: 0.78rem; letter-spacing: 2px;
+  font-weight: 700; margin-bottom: 30px;
+  box-shadow: 4px 4px 0 var(--shadow);
+}
+.pulse-dot {
+  width: 10px; height: 10px; background: var(--accent);
+  border-radius: 50%; animation: pulse 1.4s infinite; flex-shrink: 0;
+}
+@keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.3;transform:scale(0.7)} }
+
+.main-title {
+  font-family: 'Bebas Neue', cursive;
+  font-size: clamp(3.5rem, 11vw, 8.5rem);
+  line-height: 0.88; letter-spacing: 2px;
+  animation: titleReveal 1s cubic-bezier(0.22,1,0.36,1) both;
+}
+@keyframes titleReveal {
+  from { opacity: 0; transform: translateY(60px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.outline { color: transparent; -webkit-text-stroke: 2px var(--text); }
+.typing-cursor {
+  display: inline-block; width: 3px; height: 0.85em;
+  background: var(--accent); margin-left: 4px;
+  vertical-align: middle; animation: blink 0.8s infinite;
+}
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+
+.bio-box {
+  background: var(--accent); color: #000; border: var(--border);
+  padding: 28px 40px; margin: 50px auto; max-width: 720px;
+  font-weight: 700; font-size: 1.2rem; line-height: 1.6;
+  box-shadow: 10px 10px 0 var(--shadow);
+  animation: fadeUp 1s 0.3s cubic-bezier(0.22,1,0.36,1) both;
+}
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.hero-actions {
+  display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;
+  animation: fadeUp 1s 0.5s cubic-bezier(0.22,1,0.36,1) both;
+}
+.btn {
+  padding: 16px 34px; border: var(--border);
+  font-weight: 700; font-size: 0.9rem; letter-spacing: 2px;
+  text-decoration: none; transition: 0.2s; cursor: pointer;
+  font-family: 'Space Mono', monospace; display: inline-block;
+}
+.btn-black { background: var(--text); color: var(--bg); }
+.btn-white { background: var(--card-bg); color: var(--text); }
+.btn:hover { transform: translate(-4px,-4px); box-shadow: 12px 12px 0 var(--shadow); }
+
+@media (max-width: 480px) {
+  .hero-actions { flex-direction: column; align-items: center; }
+  .main-title { font-size: clamp(2.8rem, 13vw, 5rem); }
+}

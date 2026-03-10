@@ -1,0 +1,30 @@
+.stats { max-width: 1050px; margin: 90px auto; padding: 0 20px; }
+.stats-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  border: var(--border); box-shadow: 8px 8px 0 var(--shadow);
+}
+.stat-item {
+  padding: 44px 20px; text-align: center;
+  border-right: var(--border); background: var(--card-bg);
+  transition: background 0.3s, color 0.3s; cursor: default;
+}
+.stat-item:last-child { border-right: none; }
+.stat-item:hover { background: var(--accent); }
+.stat-item:hover .stat-num { color: #000; }
+.stat-item:hover .stat-label { color: #000; }
+.stat-num {
+  font-family: 'Bebas Neue', cursive; font-size: 4rem; line-height: 1;
+  color: var(--accent); transition: color 0.3s;
+}
+.stat-suffix { font-size: 2.5rem; }
+.stat-label {
+  font-size: 0.72rem; letter-spacing: 2px; font-weight: 700;
+  margin-top: 10px; color: var(--muted); transition: color 0.3s;
+}
+
+@media (max-width: 900px) {
+  .stats-grid { grid-template-columns: 1fr 1fr; }
+  .stat-item:nth-child(2) { border-right: none; }
+  .stat-item:nth-child(3) { border-top: var(--border); border-right: var(--border); }
+  .stat-item:last-child { border-top: var(--border); }
+}
