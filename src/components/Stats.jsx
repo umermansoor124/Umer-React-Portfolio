@@ -2,9 +2,9 @@ import { useEffect, useRef, useState } from 'react';
 import './Stats.css';
 
 const STATS = [
-  { target: 14, suffix: '',   label: 'PROJECTS BUILT' },
+  { target: 7, suffix: '',   label: 'MEAN PROJECTS BUILT' },
   { target: 5,  suffix: '+',  label: 'LANGUAGES' },
-  { target: 2,  suffix: 'YR', label: 'EXPERIENCE' },
+  { target: 1.6,  suffix: 'YR', label: 'EXPERIENCE' },
   { target: 100,suffix: '%',  label: 'DEDICATION' },
 ];
 

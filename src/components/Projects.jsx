@@ -38,16 +38,28 @@ export default function Projects() {
             ref={el => cardRefs.current[i] = el}
             style={{ transitionDelay: `${i * 0.05}s` }}
           >
-            <div className={`p-img ${p.bg}`}>{p.code}</div>
+            <div className={`p-img ${p.bg}`}>
+              <span className="p-code-text">{p.code}</span>
+            </div>
+
             <div className="p-body">
               <h3>{p.title}</h3>
               <p>{p.desc}</p>
               <div className="tags">
                 {p.tags.map(t => <span key={t} className="tag">{t}</span>)}
               </div>
-              <a href="https://github.com/umermansoor124" target="_blank" rel="noreferrer" className="p-link">
-                VIEW CODE →
-              </a>
+              <div className="p-links">
+                {p.live && (
+                  <a href={p.live} target="_blank" rel="noreferrer" className="p-link p-link-live">
+                    LIVE DEMO →
+                  </a>
+                )}
+                {p.github && (
+                  <a href={p.github} target="_blank" rel="noreferrer" className="p-link p-link-gh">
+                    VIEW CODE →
+                  </a>
+                )}
+              </div>
             </div>
           </div>
         ))}

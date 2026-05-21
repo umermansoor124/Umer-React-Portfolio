@@ -49,11 +49,23 @@ export default function Contact() {
                            {};
 
   return (
-    <section id="contact" className="contact">
+<section id="contact" className="contact">
       <div className="c-container">
         <div className="c-info slide-left" ref={infoRef}>
           <h2 className="c-title">LET'S<br />CONNECT.</h2>
           <p className="c-sub">Open to freelance projects, collabs, and full-time opportunities. Drop a message and I'll get back to you fast.</p>
+          
+          <div className="c-direct-contacts">
+            <div className="c-contact-item">
+              <i className="fas fa-envelope"></i>
+              <a href="mailto:umer58984@gmail.com">umer58984@gmail.com</a>
+            </div>
+            <div className="c-contact-item">
+              <i className="fas fa-phone-alt"></i>
+              <a href="tel:+923142397565">03142397565</a>
+            </div>
+          </div>
+
           <div className="social-box">
             <a href="https://github.com/umermansoor124" target="_blank" rel="noreferrer" className="social-link neo-shadow-sm">
               <i className="fab fa-github"></i>

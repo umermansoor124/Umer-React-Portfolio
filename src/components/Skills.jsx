@@ -13,11 +13,11 @@ const ICONS = [
 ];
 
 const BARS = [
-  { label: 'HTML / CSS',      pct: 92 },
-  { label: 'JAVASCRIPT',      pct: 85 },
-  { label: 'REACT.JS',        pct: 80 },
+  { label: 'HTML / CSS',      pct: 100 },
+  { label: 'JAVASCRIPT',      pct: 90 },
+  { label: 'REACT.JS',        pct: 93 },
   { label: 'PYTHON',          pct: 75 },
-  { label: 'NODE / MONGODB',  pct: 70 },
+  { label: 'NODE / MONGODB',  pct: 89 },
 ];
 
 export default function Skills() {
